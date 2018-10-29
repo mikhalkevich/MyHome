@@ -1,0 +1,11 @@
+extends layout
+
+block content
+  h1= title
+  p Чтобы включить лампу нажмите кнопку Включить
+  ul
+   li
+    if comport == '173,2,0,0,0,130,0,3,0,0,0,0,0,143,93,32,174'
+     a.link#on(href='go/on') Выключить
+    else
+     a.link#off(href='go/on') Включить
