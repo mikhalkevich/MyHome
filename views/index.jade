@@ -1,11 +1,24 @@
 extends layout
 
 block content
+  #timer 0
   h1= title
   p Чтобы включить лампу нажмите кнопку Включить
+
   ul
    li
     if comport == '173,2,0,0,0,130,0,3,0,0,0,0,0,143,93,32,174'
      a.link#on(href='go/on') Выключить
     else
      a.link#off(href='go/on') Включить
+   li
+    if comport == '173,2,0,0,0,130,0,3,0,0,0,0,0,143,93,32,174'
+     a.link#on_more(href='#') Выключить через 
+     &nbsp;
+     input#time(type="number", min=0, value="10")
+     span#secs &nbsp; секунд
+    else 
+     a.link#on_more(href='#') Включить через 
+     &nbsp; 
+     input#time(type="number", min=0, value="10")
+     span#secs &nbsp; секунд
